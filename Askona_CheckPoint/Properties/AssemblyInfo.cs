@@ -10,7 +10,7 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("Askona")]
 [assembly: AssemblyProduct("Askona CheckPoint")]
-[assembly: AssemblyCopyright("Copyright © Askona 2020")]
+[assembly: AssemblyCopyright("Copyright © Askona 2021")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
@@ -33,4 +33,4 @@ using System.Runtime.InteropServices;
 // by using the '*' as shown below:
 // [assembly: AssemblyVersion("1.0.*")]
 [assembly: AssemblyVersion("3.1.*")]
-[assembly: AssemblyFileVersion("3.1.1.0")]
+[assembly: AssemblyFileVersion("3.1.2.0")]

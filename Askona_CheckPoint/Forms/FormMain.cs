@@ -37,13 +37,13 @@ namespace Askona_CheckPoint
             if (sr == null) 
                 return("В Active Directory не найдена учетная запись текущего пользователя.");
             DirectoryEntry user = sr.GetDirectoryEntry();
-            ds.Filter = "(&(Name=" + groupName + ")(objectClass=group))";
+            ds.Filter = $"(&(Name={groupName})(objectClass=group))";
             sr = ds.FindOne();
             if (sr == null)
                 return("В Active Directory не найдена соответствующая группа пользователей.");
             DirectoryEntry group = sr.GetDirectoryEntry();
             if (!(bool)group.Invoke("IsMember", new object[] { user.Path }))
-                return ("Текущий пользователь не входит в состав группы " + group.Name);
+                return("Текущий пользователь не входит в состав группы " + group.Name);
             else
                 return("OK");
         }

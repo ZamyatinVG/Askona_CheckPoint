@@ -23,7 +23,7 @@ namespace Askona_CheckPoint
             using (CheckPoint db = new CheckPoint())
             {
                 var rq = db.Request.Where(x => x.FCREATEDATE.Year == RequestDTP.Value.Year && x.FCREATEDATE.Month == RequestDTP.Value.Month)
-                                   .Where(x => x.FDESCR == SystemInformation.UserName || !SelfChB.Checked)
+                                   .Where(x => x.FDESCR == SystemInformation.UserName || (SelfChB.Visible && !SelfChB.Checked))
                                    .Select(x => new
                                    {
                                        x.FID,
