@@ -71,18 +71,20 @@
             this.SumLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.SumLabel.AutoSize = true;
             this.SumLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.SumLabel.Location = new System.Drawing.Point(869, 6);
+            this.SumLabel.Location = new System.Drawing.Point(1159, 7);
+            this.SumLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.SumLabel.Name = "SumLabel";
-            this.SumLabel.Size = new System.Drawing.Size(63, 16);
+            this.SumLabel.Size = new System.Drawing.Size(77, 20);
             this.SumLabel.TabIndex = 21;
             this.SumLabel.Text = "ИТОГО:";
             // 
             // JournalButton
             // 
             this.JournalButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.JournalButton.Location = new System.Drawing.Point(483, 44);
+            this.JournalButton.Location = new System.Drawing.Point(644, 54);
+            this.JournalButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.JournalButton.Name = "JournalButton";
-            this.JournalButton.Size = new System.Drawing.Size(150, 25);
+            this.JournalButton.Size = new System.Drawing.Size(200, 31);
             this.JournalButton.TabIndex = 5;
             this.JournalButton.Text = "Журнал";
             this.JournalButton.UseVisualStyleBackColor = true;
@@ -91,9 +93,10 @@
             // OutButton
             // 
             this.OutButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.OutButton.Location = new System.Drawing.Point(327, 44);
+            this.OutButton.Location = new System.Drawing.Point(436, 54);
+            this.OutButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.OutButton.Name = "OutButton";
-            this.OutButton.Size = new System.Drawing.Size(150, 25);
+            this.OutButton.Size = new System.Drawing.Size(200, 31);
             this.OutButton.TabIndex = 4;
             this.OutButton.Text = "Заверш. отгрузки";
             this.OutButton.UseVisualStyleBackColor = true;
@@ -102,9 +105,10 @@
             // InButton
             // 
             this.InButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.InButton.Location = new System.Drawing.Point(171, 44);
+            this.InButton.Location = new System.Drawing.Point(228, 54);
+            this.InButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.InButton.Name = "InButton";
-            this.InButton.Size = new System.Drawing.Size(150, 25);
+            this.InButton.Size = new System.Drawing.Size(200, 31);
             this.InButton.TabIndex = 3;
             this.InButton.Text = "Разрешить въезд";
             this.InButton.UseVisualStyleBackColor = true;
@@ -113,9 +117,10 @@
             // EditButton
             // 
             this.EditButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.EditButton.Location = new System.Drawing.Point(15, 44);
+            this.EditButton.Location = new System.Drawing.Point(20, 54);
+            this.EditButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.EditButton.Name = "EditButton";
-            this.EditButton.Size = new System.Drawing.Size(150, 25);
+            this.EditButton.Size = new System.Drawing.Size(200, 31);
             this.EditButton.TabIndex = 2;
             this.EditButton.Text = "Изменить";
             this.EditButton.UseVisualStyleBackColor = true;
@@ -125,9 +130,10 @@
             // 
             this.WarehouseDTP.CustomFormat = "";
             this.WarehouseDTP.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.WarehouseDTP.Location = new System.Drawing.Point(86, 6);
+            this.WarehouseDTP.Location = new System.Drawing.Point(115, 7);
+            this.WarehouseDTP.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.WarehouseDTP.Name = "WarehouseDTP";
-            this.WarehouseDTP.Size = new System.Drawing.Size(150, 22);
+            this.WarehouseDTP.Size = new System.Drawing.Size(199, 26);
             this.WarehouseDTP.TabIndex = 1;
             this.WarehouseDTP.ValueChanged += new System.EventHandler(this.WarehouseDTP_ValueChanged);
             // 
@@ -135,9 +141,10 @@
             // 
             this.DateLabel.AutoSize = true;
             this.DateLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.DateLabel.Location = new System.Drawing.Point(12, 9);
+            this.DateLabel.Location = new System.Drawing.Point(16, 11);
+            this.DateLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.DateLabel.Name = "DateLabel";
-            this.DateLabel.Size = new System.Drawing.Size(68, 16);
+            this.DateLabel.Size = new System.Drawing.Size(86, 20);
             this.DateLabel.TabIndex = 14;
             this.DateLabel.Text = "Период:";
             // 
@@ -147,9 +154,10 @@
             this.RefreshButton.FlatAppearance.BorderSize = 0;
             this.RefreshButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.RefreshButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.RefreshButton.Location = new System.Drawing.Point(872, 44);
+            this.RefreshButton.Location = new System.Drawing.Point(1163, 54);
+            this.RefreshButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.RefreshButton.Name = "RefreshButton";
-            this.RefreshButton.Size = new System.Drawing.Size(150, 57);
+            this.RefreshButton.Size = new System.Drawing.Size(200, 70);
             this.RefreshButton.TabIndex = 6;
             this.RefreshButton.Text = "Обновить";
             this.RefreshButton.UseVisualStyleBackColor = true;
@@ -191,15 +199,17 @@
             this.Column15,
             this.Column16,
             this.Column17});
-            this.WarehouseDGV.Location = new System.Drawing.Point(15, 107);
+            this.WarehouseDGV.Location = new System.Drawing.Point(20, 132);
+            this.WarehouseDGV.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.WarehouseDGV.MultiSelect = false;
             this.WarehouseDGV.Name = "WarehouseDGV";
             this.WarehouseDGV.ReadOnly = true;
             this.WarehouseDGV.RowHeadersWidth = 4;
             this.WarehouseDGV.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.WarehouseDGV.Size = new System.Drawing.Size(1007, 568);
+            this.WarehouseDGV.Size = new System.Drawing.Size(1343, 699);
             this.WarehouseDGV.TabIndex = 0;
             this.WarehouseDGV.TabStop = false;
+            this.WarehouseDGV.DataSourceChanged += new System.EventHandler(this.WarehouseDGV_DataSourceChanged);
             this.WarehouseDGV.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.WarehouseDGV_CellDoubleClick);
             this.WarehouseDGV.ColumnHeaderMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.WarehouseDGV_ColumnHeaderMouseClick);
             // 
@@ -228,6 +238,7 @@
             this.Column2.MinimumWidth = 6;
             this.Column2.Name = "Column2";
             this.Column2.ReadOnly = true;
+            this.Column2.Width = 125;
             // 
             // Column3
             // 
@@ -236,6 +247,7 @@
             this.Column3.MinimumWidth = 6;
             this.Column3.Name = "Column3";
             this.Column3.ReadOnly = true;
+            this.Column3.Width = 125;
             // 
             // Column4
             // 
@@ -253,6 +265,7 @@
             this.Column5.MinimumWidth = 6;
             this.Column5.Name = "Column5";
             this.Column5.ReadOnly = true;
+            this.Column5.Width = 125;
             // 
             // Column6
             // 
@@ -261,6 +274,7 @@
             this.Column6.MinimumWidth = 6;
             this.Column6.Name = "Column6";
             this.Column6.ReadOnly = true;
+            this.Column6.Width = 125;
             // 
             // Column7
             // 
@@ -269,6 +283,7 @@
             this.Column7.MinimumWidth = 6;
             this.Column7.Name = "Column7";
             this.Column7.ReadOnly = true;
+            this.Column7.Width = 125;
             // 
             // Column8
             // 
@@ -277,6 +292,7 @@
             this.Column8.MinimumWidth = 6;
             this.Column8.Name = "Column8";
             this.Column8.ReadOnly = true;
+            this.Column8.Width = 125;
             // 
             // Column9
             // 
@@ -285,6 +301,7 @@
             this.Column9.MinimumWidth = 6;
             this.Column9.Name = "Column9";
             this.Column9.ReadOnly = true;
+            this.Column9.Width = 125;
             // 
             // Column10
             // 
@@ -372,27 +389,30 @@
             // 
             this.FilterAutoLabel.AutoSize = true;
             this.FilterAutoLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.FilterAutoLabel.Location = new System.Drawing.Point(327, 82);
+            this.FilterAutoLabel.Location = new System.Drawing.Point(436, 101);
+            this.FilterAutoLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.FilterAutoLabel.Name = "FilterAutoLabel";
-            this.FilterAutoLabel.Size = new System.Drawing.Size(48, 16);
+            this.FilterAutoLabel.Size = new System.Drawing.Size(61, 20);
             this.FilterAutoLabel.TabIndex = 24;
             this.FilterAutoLabel.Text = "Авто:";
             // 
             // FilterAutoTB
             // 
             this.FilterAutoTB.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.FilterAutoTB.Location = new System.Drawing.Point(377, 79);
+            this.FilterAutoTB.Location = new System.Drawing.Point(503, 97);
+            this.FilterAutoTB.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.FilterAutoTB.Name = "FilterAutoTB";
-            this.FilterAutoTB.Size = new System.Drawing.Size(100, 22);
+            this.FilterAutoTB.Size = new System.Drawing.Size(132, 26);
             this.FilterAutoTB.TabIndex = 25;
             this.FilterAutoTB.TextChanged += new System.EventHandler(this.FilterAutoTB_TextChanged);
             // 
             // FilterFIOTB
             // 
             this.FilterFIOTB.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.FilterFIOTB.Location = new System.Drawing.Point(132, 79);
+            this.FilterFIOTB.Location = new System.Drawing.Point(176, 97);
+            this.FilterFIOTB.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.FilterFIOTB.Name = "FilterFIOTB";
-            this.FilterFIOTB.Size = new System.Drawing.Size(189, 22);
+            this.FilterFIOTB.Size = new System.Drawing.Size(251, 26);
             this.FilterFIOTB.TabIndex = 23;
             this.FilterFIOTB.TextChanged += new System.EventHandler(this.FilterFIOTB_TextChanged);
             // 
@@ -400,17 +420,18 @@
             // 
             this.FilterFIOLabel.AutoSize = true;
             this.FilterFIOLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.FilterFIOLabel.Location = new System.Drawing.Point(12, 82);
+            this.FilterFIOLabel.Location = new System.Drawing.Point(16, 101);
+            this.FilterFIOLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.FilterFIOLabel.Name = "FilterFIOLabel";
-            this.FilterFIOLabel.Size = new System.Drawing.Size(114, 16);
+            this.FilterFIOLabel.Size = new System.Drawing.Size(147, 20);
             this.FilterFIOLabel.TabIndex = 22;
             this.FilterFIOLabel.Text = "Фильтер ФИО:";
             // 
             // FormWarehouse
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1034, 687);
+            this.ClientSize = new System.Drawing.Size(1379, 846);
             this.Controls.Add(this.FilterAutoLabel);
             this.Controls.Add(this.FilterAutoTB);
             this.Controls.Add(this.FilterFIOTB);
@@ -426,6 +447,7 @@
             this.Controls.Add(this.RefreshButton);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "FormWarehouse";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Контроль погрузки";

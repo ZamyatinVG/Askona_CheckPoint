@@ -24,25 +24,25 @@ namespace Askona_CheckPoint
             {
                 var rq = db.Request.Where(x => x.FCREATEDATE.Year == RequestDTP.Value.Year && x.FCREATEDATE.Month == RequestDTP.Value.Month)
                                    .Where(x => x.FDESCR == SystemInformation.UserName || (SelfChB.Visible && !SelfChB.Checked))
-                                   .Select(x => new
+                                   .Select(x => new Request_View
                                    {
-                                       x.FID,
-                                       x.FDESCR,
-                                       x.FCREATEDATE,
-                                       x.FGUESTFIO,
-                                       x.FGUESTJOB,
-                                       x.FAUTOMARK,
-                                       x.FAUTONUMBER,
-                                       x.FLOCATION,
-                                       x.FDATEBEGIN,
-                                       x.FDATEEND,
-                                       x.FMEETFIO,
-                                       x.FSTATUS,
-                                       x.FPURPOSE,
-                                       x.FUTVDATE,
-                                       x.FPHONE
+                                       FID = x.FID,
+                                       FDESCR = x.FDESCR,
+                                       FCREATEDATE = x.FCREATEDATE,
+                                       FGUESTFIO = x.FGUESTFIO,
+                                       FGUESTJOB = x.FGUESTJOB,
+                                       FAUTOMARK = x.FAUTOMARK,
+                                       FAUTONUMBER = x.FAUTONUMBER,
+                                       FLOCATION = x.FLOCATION,
+                                       FDATEBEGIN = x.FDATEBEGIN,
+                                       FDATEEND = x.FDATEEND,
+                                       FMEETFIO = x.FMEETFIO,
+                                       FSTATUS = x.FSTATUS,
+                                       FPURPOSE = x.FPURPOSE,
+                                       FUTVDATE = x.FUTVDATE,
+                                       FPHONE = x.FPHONE
                                    });
-                RequestDGV.DataSource = rq.ToList();
+                RequestDGV.DataSource = new CustomBindingList<Request_View>(rq.ToList());
             }
             RequestDGV.Select();
             if (selectedRow != 0 && selectedRow < RequestDGV.Rows.Count)

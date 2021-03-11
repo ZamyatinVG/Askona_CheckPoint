@@ -8,7 +8,6 @@ namespace Askona_CheckPoint
     {
         private ListLabel LL = new ListLabel();
         public FormPrint() => InitializeComponent();
-
         private void FormPrint_Load(object sender, EventArgs e)
         {
             LL.LicensingInfo = "jMijDg";
@@ -16,7 +15,6 @@ namespace Askona_CheckPoint
             MainWHButton.Click += Button_Click;
             LopatinaButton.Click += Button_Click;
         }
-
         private void Button_Click(object sender, EventArgs e)
         {
             Button btn = (Button)sender;
@@ -39,7 +37,6 @@ namespace Askona_CheckPoint
             }
             Close();
         }
-
         private void LL_DefineVariables(object sender, DefineElementsEventArgs e)
         {
             FormCheck fch = (FormCheck)this.Owner;

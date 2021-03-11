@@ -9,13 +9,11 @@ namespace Askona_CheckPoint
     public partial class FormWarehouse : Form
     {
         public FormWarehouse() => InitializeComponent();
-
         private void FormWarehouse_Load(object sender, EventArgs e)
         {
             FillWarehouse();
             WarehouseTimer.Start();
         }
-
         private void FillWarehouse()
         {
             int selectedRow = 0;
@@ -32,35 +30,28 @@ namespace Askona_CheckPoint
                                    .Where(x => x.FSTATUS != Status.Initial && x.FSTATUS != Status.Changed && x.FSTATUS != Status.Approved && x.FSTATUS != Status.ActiveOutput)
                                    .Where(x => x.FGUESTFIO.ToUpper().Contains(FilterFIOTB.Text.ToUpper()) || FilterFIOTB.Text == "")
                                    .Where(x => x.FAUTONUMBER.ToUpper().Contains(FilterAutoTB.Text.ToUpper()) || FilterAutoTB.Text == "")
-                                   .Select(x => new
+                                   .Select(x => new Warehouse_View
                                    {
-                                       x.FID,
-                                       x.FGUESTFIO,
-                                       x.FAUTOMARK,
-                                       x.FAUTONUMBER,
-                                       x.FLOCATION,
-                                       x.FDATEBEGIN,
-                                       x.FDATEEND,
-                                       x.FSTATUS,
-                                       x.FWHDATEBEGIN,
-                                       x.FWHDATEEND,
-                                       x.FMEETFIO,
-                                       x.FGUESTJOB,
-                                       x.FWHCOMMENT,
-                                       x.FDESCR,
-                                       x.FPURPOSE,
-                                       x.FUTVDATE,
-                                       x.FPHONE,
-                                       x.FWHPERSON
+                                       FID= x.FID,
+                                       FGUESTFIO = x.FGUESTFIO,
+                                       FAUTOMARK = x.FAUTOMARK,
+                                       FAUTONUMBER = x.FAUTONUMBER,
+                                       FLOCATION = x.FLOCATION,
+                                       FDATEBEGIN = x.FDATEBEGIN,
+                                       FDATEEND = x.FDATEEND,
+                                       FSTATUS = x.FSTATUS,
+                                       FWHDATEBEGIN = x.FWHDATEBEGIN,
+                                       FWHDATEEND = x.FWHDATEEND,
+                                       FMEETFIO = x.FMEETFIO,
+                                       FGUESTJOB = x.FGUESTJOB,
+                                       FWHCOMMENT = x.FWHCOMMENT,
+                                       FDESCR = x.FDESCR,
+                                       FPURPOSE = x.FPURPOSE,
+                                       FUTVDATE = x.FUTVDATE,
+                                       FPHONE = x.FPHONE,
+                                       FWHPERSON = x.FWHPERSON
                                    });
-                WarehouseDGV.DataSource = rq.ToList();
-            }
-            for (int i = 0; i < WarehouseDGV.Rows.Count; i++)
-            {
-                if (WarehouseDGV.Rows[i].Cells[7].Value.ToString() == Status.EntryAllowed)
-                    WarehouseDGV.Rows[i].DefaultCellStyle.BackColor = Color.LightGreen;
-                if (WarehouseDGV.Rows[i].Cells[7].Value.ToString() == Status.ShipmentCompleted)
-                    WarehouseDGV.Rows[i].DefaultCellStyle.BackColor = Color.Cyan;
+                WarehouseDGV.DataSource = new CustomBindingList<Warehouse_View>(rq.ToList());
             }
             WarehouseDGV.Select();
             SumLabel.Text = "ИТОГО: " + WarehouseDGV.Rows.Count.ToString() + " шт.";
@@ -69,7 +60,6 @@ namespace Askona_CheckPoint
             if (displayedRow != 0 && displayedRow < WarehouseDGV.Rows.Count)
                 WarehouseDGV.FirstDisplayedScrollingRowIndex = displayedRow;
         }
-
         private void WarehouseDTP_ValueChanged(object sender, EventArgs e) => FillWarehouse();
 
         private void RefreshButton_Click(object sender, EventArgs e)
@@ -78,7 +68,6 @@ namespace Askona_CheckPoint
             RefreshButton.ForeColor = Color.Black;
             FillWarehouse();
         }
-
         private void InButton_Click(object sender, EventArgs e)
         {
             Thread.Sleep(1000);
@@ -116,7 +105,6 @@ namespace Askona_CheckPoint
                     }
                 }
         }
-
         private void OutButton_Click(object sender, EventArgs e)
         {
             Thread.Sleep(1000);
@@ -146,11 +134,6 @@ namespace Askona_CheckPoint
                     }
                 }
         }
-
-        private void WarehouseDGV_ColumnHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
-        {
-        }
-
         private void JournalButton_Click(object sender, EventArgs e)
         {
             try
@@ -162,7 +145,6 @@ namespace Askona_CheckPoint
             }
             catch { }
         }
-
         private void WarehouseTimer_Tick(object sender, EventArgs e)
         {
             DateTime datebegin = WarehouseDTP.Value.Date.AddDays(1);
@@ -183,7 +165,6 @@ namespace Askona_CheckPoint
                 RefreshButton.ForeColor = Color.Red;
             }
         }
-
         private void EditButton_Click(object sender, EventArgs e)
         {
             FormBlank fb = new FormBlank();
@@ -229,19 +210,28 @@ namespace Askona_CheckPoint
             if (sender.ToString() != "System.Windows.Forms.DataGridView")
                 FillWarehouse();
         }
-
         private void WarehouseDGV_CellDoubleClick(object sender, DataGridViewCellEventArgs e) => EditButton_Click(sender, e);
-
         private void FilterFIOTB_TextChanged(object sender, EventArgs e)
         {
             FillWarehouse();
             FilterFIOTB.Focus();
         }
-
         private void FilterAutoTB_TextChanged(object sender, EventArgs e)
         {
             FillWarehouse();
             FilterAutoTB.Focus();
         }
+        private void DGV_Paint()
+        {
+            for (int i = 0; i < WarehouseDGV.Rows.Count; i++)
+            {
+                if (WarehouseDGV.Rows[i].Cells[7].Value.ToString() == Status.EntryAllowed)
+                    WarehouseDGV.Rows[i].DefaultCellStyle.BackColor = Color.LightGreen;
+                if (WarehouseDGV.Rows[i].Cells[7].Value.ToString() == Status.ShipmentCompleted)
+                    WarehouseDGV.Rows[i].DefaultCellStyle.BackColor = Color.Cyan;
+            }
+        }
+        private void WarehouseDGV_DataSourceChanged(object sender, EventArgs e) => DGV_Paint();
+        private void WarehouseDGV_ColumnHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e) => DGV_Paint();
     }
 }

@@ -10,13 +10,11 @@ namespace Askona_CheckPoint
     public partial class FormCheck : Form
     {
         public FormCheck() => InitializeComponent();
-
         private void FormCheck_Load(object sender, EventArgs e)
         {
             FillCheck();
             CheckTimer.Start();
         }
-
         private void FillCheck()
         {
             int selectedRow = 0;
@@ -33,42 +31,34 @@ namespace Askona_CheckPoint
                                    .Where(x => x.FSTATUS != Status.Initial && x.FSTATUS != Status.Changed)
                                    .Where(x => x.FGUESTFIO.ToUpper().Contains(FilterFIOTB.Text.ToUpper()) || FilterFIOTB.Text == "")
                                    .Where(x => x.FAUTONUMBER.ToUpper().Contains(FilterAutoTB.Text.ToUpper()) || FilterAutoTB.Text == "")
-                                   .Select(x => new
+                                   .Select(x => new Check_View
                                    {
-                                       x.FID,
-                                       x.FGUESTFIO,
-                                       x.FAUTOMARK,
-                                       x.FAUTONUMBER,
-                                       x.FLOCATION,
-                                       x.FDATEBEGIN,
-                                       x.FDATEEND,
-                                       x.FSTATUS,
-                                       x.FFACTDATEBEGIN,
-                                       x.FFACTDATEEND,
-                                       x.FMEETFIO,
-                                       x.FGUESTJOB,
-                                       x.FWHDATEBEGIN,
-                                       x.FWHDATEEND,
-                                       x.FWHCOMMENT,
-                                       x.FDESCR,
-                                       x.FPURPOSE,
-                                       x.FUTVDATE,
-                                       x.FPHONE,
-                                       x.FWHPERSON
+                                       FID = x.FID,
+                                       FGUESTFIO = x.FGUESTFIO,
+                                       FAUTOMARK = x.FAUTOMARK,
+                                       FAUTONUMBER = x.FAUTONUMBER,
+                                       FLOCATION = x.FLOCATION,
+                                       FDATEBEGIN = x.FDATEBEGIN,
+                                       FDATEEND = x.FDATEEND,
+                                       FSTATUS = x.FSTATUS,
+                                       FFACTDATEBEGIN = x.FFACTDATEBEGIN,
+                                       FFACTDATEEND = x.FFACTDATEEND,
+                                       FMEETFIO = x.FMEETFIO,
+                                       FGUESTJOB = x.FGUESTJOB,
+                                       FWHDATEBEGIN = x.FWHDATEBEGIN,
+                                       FWHDATEEND = x.FWHDATEEND,
+                                       FWHCOMMENT = x.FWHCOMMENT,
+                                       FDESCR = x.FDESCR,
+                                       FPURPOSE = x.FPURPOSE,
+                                       FUTVDATE = x.FUTVDATE,
+                                       FPHONE = x.FPHONE,
+                                       FWHPERSON = x.FWHPERSON
                                    });
-                CheckDGV.DataSource = rq.ToList();
+                CheckDGV.DataSource = new CustomBindingList<Check_View>(rq.ToList());
             }
             CheckDGV.Select();
             SumLabel.Text = "ИТОГО: " + CheckDGV.Rows.Count.ToString() + " шт.";
-            for (int i = 0; i < CheckDGV.Rows.Count; i++)
-            {
-                if (CheckDGV.Rows[i].Cells[7].Value.ToString() == Status.ActiveInput)
-                    CheckDGV.Rows[i].DefaultCellStyle.BackColor = Color.Orange;
-                if (CheckDGV.Rows[i].Cells[7].Value.ToString() == Status.EntryAllowed)
-                    CheckDGV.Rows[i].DefaultCellStyle.BackColor = Color.LightGreen;
-                if (CheckDGV.Rows[i].Cells[7].Value.ToString() == Status.ShipmentCompleted)
-                    CheckDGV.Rows[i].DefaultCellStyle.BackColor = Color.Cyan;
-            }
+
             if (selectedRow != 0 && selectedRow < CheckDGV.Rows.Count)
                 CheckDGV.Rows[selectedRow].Selected = true;
             if (displayedRow != 0 && displayedRow < CheckDGV.Rows.Count)
@@ -76,7 +66,6 @@ namespace Askona_CheckPoint
         }
 
         private void CheckDTP_ValueChanged(object sender, EventArgs e) => FillCheck();
-
         private void EditButton_Click(object sender, EventArgs e)
         {
             FormBlank fb = new FormBlank();
@@ -127,9 +116,7 @@ namespace Askona_CheckPoint
             if (sender.ToString() != "System.Windows.Forms.DataGridView")
                 FillCheck();
         }
-
         private void CheckDGV_CellDoubleClick(object sender, DataGridViewCellEventArgs e) => EditButton_Click(sender, e);
-
         private void InButton_Click(object sender, EventArgs e)
         {
             Thread.Sleep(1000);
@@ -159,7 +146,6 @@ namespace Askona_CheckPoint
                         FillCheck();
                     }
         }
-
         private void OutButton_Click(object sender, EventArgs e)
         {
             Thread.Sleep(1000);
@@ -188,7 +174,6 @@ namespace Askona_CheckPoint
                     }
                 }
         }
-
         private void EndButton_Click(object sender, EventArgs e)
         {
             if (CheckDGV.SelectedRows.Count != 0)
@@ -207,7 +192,6 @@ namespace Askona_CheckPoint
                         FillCheck();
                     }
         }
-
         private void CheckDGV_RowEnter(object sender, DataGridViewCellEventArgs e)
         {
             if (CheckDGV.SelectedRows.Count != 0)
@@ -233,7 +217,6 @@ namespace Askona_CheckPoint
                 }
             }
         }
-
         private void PrintButton_Click(object sender, EventArgs e)
         {
             if (File.Exists(Application.StartupPath + "\\combit.ListLabel15.dll"))
@@ -245,7 +228,6 @@ namespace Askona_CheckPoint
             }
             else MessageBox.Show("Печать недоступна!", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
-
         private void MiDesign_Click(object sender, EventArgs e)
         {
             FormPrint fp = new FormPrint();
@@ -253,26 +235,22 @@ namespace Askona_CheckPoint
             fp.Text = "Дизайнер";
             fp.ShowDialog();
         }
-
         private void FilterFIOTB_TextChanged(object sender, EventArgs e)
         {
             FillCheck();
             FilterFIOTB.Focus();
         }
-
         private void FilterAutoTB_TextChanged(object sender, EventArgs e)
         {
             FillCheck();
             FilterAutoTB.Focus();
         }
-
         private void RefreshButton_Click(object sender, EventArgs e)
         {
             RefreshButton.Text = "Обновить";
             RefreshButton.ForeColor = Color.Black;
             FillCheck();
         }
-
         private void CheckTimer_Tick(object sender, EventArgs e)
         {
             DateTime datebegin = CheckDTP.Value.Date.AddDays(1);
@@ -293,7 +271,6 @@ namespace Askona_CheckPoint
                 RefreshButton.ForeColor = Color.Red;
             }
         }
-
         private void JournalButton_Click(object sender, EventArgs e)
         {
             if (CheckDGV.SelectedRows.Count != 0)
@@ -304,9 +281,19 @@ namespace Askona_CheckPoint
                 fj.ShowDialog();
             }
         }
-
-        private void CheckDGV_ColumnHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        private void DGV_Paint()
         {
+            for (int i = 0; i < CheckDGV.Rows.Count; i++)
+            {
+                if (CheckDGV.Rows[i].Cells[7].Value.ToString() == Status.ActiveInput)
+                    CheckDGV.Rows[i].DefaultCellStyle.BackColor = Color.Orange;
+                if (CheckDGV.Rows[i].Cells[7].Value.ToString() == Status.EntryAllowed)
+                    CheckDGV.Rows[i].DefaultCellStyle.BackColor = Color.LightGreen;
+                if (CheckDGV.Rows[i].Cells[7].Value.ToString() == Status.ShipmentCompleted)
+                    CheckDGV.Rows[i].DefaultCellStyle.BackColor = Color.Cyan;
+            }
         }
+        private void CheckDGV_DataSourceChanged(object sender, EventArgs e) => DGV_Paint();
+        private void CheckDGV_ColumnHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e) => DGV_Paint();
     }
 }

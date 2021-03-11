@@ -7,9 +7,7 @@ namespace Askona_CheckPoint
     public partial class FormBlank : Form
     {
         public int request_id;
-
         public FormBlank() => InitializeComponent();
-
         private void CreateButton_Click(object sender, EventArgs e)
         {
             if (GuestFIOTB.Text == "" || GuestJobTB.Text == "" || LocationTB.Text == "" || PurposeTB.Text == "" || MeetFIOTB.Text == "" || PhoneTB.Text == "")
@@ -128,12 +126,7 @@ namespace Askona_CheckPoint
                 }
             }
         }
-
-        private void Cancel2Button_Click(object sender, EventArgs e)
-        {
-            this.Close();
-        }
-
+        private void Cancel2Button_Click(object sender, EventArgs e) => this.Close();
         private void FormBlank_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyValue == 27)
